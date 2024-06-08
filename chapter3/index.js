@@ -1,46 +1,33 @@
-// Looping a triangle
-// Write a loop that makes seven calls to console.log to output the following triangle:
-for(let i = "#"; i.length <= 7; i+= "#"){
-    console.log(i)
-  }
-
-
-//FizzBuzz
-// Write a program that uses console.log to print all the numbers from 1 to 100, with two exceptions. For numbers divisible by 3, print "Fizz" instead of the number, and for numbers divisible by 5 (and not 3), print "Buzz" instead.
-
-// When you have that working, modify your program to print "FizzBuzz" for numbers that are divisible by both 3 and 5 (and still print "Fizz" or "Buzz" for numbers divisible by only one of those).
-
-function fizz(n){
-    for(let i = 1; i <=n; i++){
-        if(i%3 ===0 && i%5===0){
-            console.log("FizzBuzz")
-        }else if(i%3===0){
-            console.log("Fizz")
-        }else if(i%5===0){
-            console.log("Buzz")
-        }else{
-          console.log(i)
-        }
-    }
+// MINIMUM
+// The previous chapter introduced the standard function Math.min that returns its smallest argument. We can write a function like that ourselves now. Define the function min that takes two arguments and returns their minimum.
+const min = (a, b) => {
+console.log(Math.min(a,b))
 }
-fizz(50)
+min(1, 100)
 
-// Chessboard
-// Write a program that creates a string that represents an 8×8 grid, using newline characters to separate lines. At each position of the grid there is either a space or a "#" character. The characters should form a chessboard.
-
-const chessBoard = (n) => {
-    let board = "";
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            if ((i + j) % 2 === 0) {
-                board += " ";
-            } else {
-                board += "#";
-            }
-        }
-        board += "\n"; 
+// Recursion
+// We’ve seen that we can use % (the remainder operator) to test whether a number is even or odd by using % 2 to see whether it’s divisible by two. Here’s another way to define whether a positive whole number is even or odd:
+ const isEven = (n) =>{
+    n = Math.abs(n)
+    if (n === 0) {
+        return true;
+    } else if (n === 1) {
+        return false;
+    } else {
+        return isEven(n - 2);
     }
-    console.log(board);
-}
+ }
+console.log(isEven(47))
 
-chessBoard(8);
+
+// Bean Counting
+function countBs(string, count){
+    let foundItem = 0;
+    for(let i = 0; i < string.length; i++){
+     if(string[i]=== count){
+        foundItem++;
+     }
+    }
+    return foundItem;
+}
+console.log(countBs("hello", "l"));
